@@ -50,7 +50,7 @@ export default function Form() {
 
   useEffect (() => {                               
   schema.isValid(formValues).then ((valid) => {
-    setisDisabled (!valid);
+    setisDisabled (valid);
 })
 .catch(() => setisDisabled(false))
   },[formValues]);
@@ -121,7 +121,7 @@ export default function Form() {
         
       </div>
       {/* 👇 Make sure the submit stays disabled until the form validates! */}
-      <input disabled= {isDisabled} type="submit" />
+      <input disabled= {!isDisabled} type="submit" />
     </form>
   )
 }
